@@ -47,35 +47,24 @@ int 	ft_putnbr(int n)
     return (len);
 }
 
-void	*ft_memset(void *b, int c, size_t len)
+int hex(int n, char c)
 {
-	size_t			i;
-	unsigned char	*s;
-
-	i = 0;
-	s = (unsigned char *)b;
-	while (i < len)
-	{
-		s[i] = (unsigned char)c;
-		i++;
-	}
-	return (b);
-}
-void hex(int n, char c)
-{
+    int len;
     char *str;
     
+    len  = 0;
     if(c == 'x')
         str = "0123456789abcdef";
     else if (c == 'X')
         str = "0123456789ABCDEF";
     if(n >= 16)
     {
-        hex(n / 16, c);
-        hex(n % 16, c);  
+        len += hex(n / 16, c);
+        len += hex(n % 16, c);  
     }
     else 
-        write(1,&str[n%16],1);
+        len += write(1, &str[n%16], 1);
+    return (len);    
 }
 
 int check_conversions(const char *s, va_list ap)
@@ -102,6 +91,12 @@ int check_conversions(const char *s, va_list ap)
     {
         unsigned int u = va_arg(ap, unsigned int);
         len += ft_putnbr(u);
+    }
+    else if(*s == 'x' || *s == 'X')
+    {
+        char c = *s;
+        int x = va_arg(ap , unsigned int);
+        len += hex(x,c);
     }
     else if(*s == '%')
         len += ft_putchar('%');
@@ -142,7 +137,7 @@ int main()
 {
     //int a = ft_printf("my age:%r");
     //int a = printf("\n len  = %u",-15);
-    int a = ft_printf("%%%% %d",21);
+    int a = ft_printf("result : %x",16);
     printf("\na = %d",a);
 
     return 0;
