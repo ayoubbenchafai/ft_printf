@@ -137,7 +137,7 @@ int main()
 {
     //int a = ft_printf("my age:%r");
     //int a = printf("\n len  = %u",-15);
-    int a = ft_printf("result : %x",16);
+    int a = ft_printf("result : %X",255);
     printf("\na = %d",a);
 
     return 0;
