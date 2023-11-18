@@ -61,6 +61,22 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+void hex(int n, char c)
+{
+    char *str;
+    
+    if(c == 'x')
+        str = "0123456789abcdef";
+    else if (c == 'X')
+        str = "0123456789ABCDEF";
+    if(n >= 16)
+    {
+        hex(n / 16, c);
+        hex(n % 16, c);  
+    }
+    else 
+        write(1,&str[n%16],1);
+}
 
 int check_conversions(const char *s, va_list ap)
 {
@@ -93,10 +109,7 @@ int check_conversions(const char *s, va_list ap)
 }
 
 
-void hex(int n)
-{
-     
-}
+
 int ft_printf(const char *s, ...)
 {
     int c;

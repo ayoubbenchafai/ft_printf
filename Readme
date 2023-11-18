@@ -1,0 +1,26 @@
+int octal = 052;   // Le 0 avant le chiffre indique un nombre octal
+int hexadecimal = 0x2A;  // Le 0x indique un nombre hexadécimal
+----------------%i----------------------
+%i convert an number octal into decimal
+ex : 076 ==> 62
+ex : octal ==> decimal
+-----------------%u---------------------
+%u  , -15
+For a 32-bit integer, -15 in binary is represented 
+as 11111111111111111111111111110001.
+====>  the program printf : 4294967281
+
+----------------%%----------------------
+
+
+----------------------------------------
+You have to implement the following conversions:
+• %c Prints a single character. 
+• %s Prints a string (as defined by the common C convention).
+• %p The void * pointer argument has to be printed in hexadecimal format.
+• %d Prints a decimal (base 10) number.
+• %i Prints an integer in base 10.
+• %u Prints an unsigned decimal (base 10) number.
+• %x Prints a number in hexadecimal (base 16) lowercase format.
+• %X Prints a number in hexadecimal (base 16) uppercase format.
+• %% Prints a percent sign.
