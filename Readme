@@ -11,10 +11,18 @@ as 11111111111111111111111111110001.
 ====>  the program printf : 4294967281
 
 --------------void pointers----%p----------------------
-* void pointers : are like geniric pointers
+* %p : adresse du pointeur 
+* void pointers : are like generic pointers
 * void pointers : are not associated with a data type
+* void *p : this pointer can store memory addresses of any type of data
+* we can't de-reference a void pointer ,and we can't use pointer arithmitic 
+    in this case we use casting for example *((char *)p)
  void *p;    sizeof(p)  = 8;  %zu
- int *p2 ;   sizeof(p2) = 8; %zu
+ int  *p2 ;   sizeof(p2) = 8;  %zu
+
+sizeof(NULL) ==>  8 
+sizeof('\0') ==>  4
+sizeof(0) ==>  4
 
 ----------------------------------------
 You have to implement the following conversions:

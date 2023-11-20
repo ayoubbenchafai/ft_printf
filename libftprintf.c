@@ -1,5 +1,7 @@
 #include "libftprintf.h"
 
+#include <stdio.h>
+
 int ft_putchar(char c)
 {
     return write(1, &c, 1);
@@ -82,6 +84,25 @@ int hex(unsigned int n, char c)
     return (len);    
 }
 
+int hex_p(unsigned long p)
+{
+    int len;
+    char *str;
+    size_t n;
+
+    len  = 0;
+    n = (size_t)p;
+    str = "0123456789abcdef";
+    if(n >= 16)
+    {
+        len += hex_p(n/16);
+        len += hex_p(n % 16);  
+    }
+    else 
+        len += write(1, &str[n % 16], 1);
+    return (len);    
+}
+
 int check_conversions(const char *s, va_list ap)
 {
     int len;
@@ -114,12 +135,15 @@ int check_conversions(const char *s, va_list ap)
     }
     else if(*s == '%')
         len += ft_putchar('%');
+    else if(*s == 'p')
+    {
+        unsigned long p = (unsigned long)va_arg(ap, void *);
+        len += ft_putstr("0x") + hex_p(p);
+    }    
     else
         len += ft_putchar('%') + ft_putstr(s); 
     return (len);
 }
-
-
 
 int ft_printf(const char *s, ...)
 {
@@ -146,14 +170,19 @@ int ft_printf(const char *s, ...)
     return (c);
 }
 
-#include <stdio.h>
 
 int main() 
 {
     //int a = ft_printf("my age:%r");
     //int a = printf("\n len  = %u",-15);
-    int a = ft_printf("result : %w");
-    printf("\na = %d",a);
+    // int a = ft_printf("result : %w");
+    // printf("\na = %d",a);
+
+    int num =42;
+
+    int *ptr= &num;
+
+    printf("%p", NULL);
 
     return 0;
 }
