@@ -10,8 +10,11 @@ For a 32-bit integer, -15 in binary is represented
 as 11111111111111111111111111110001.
 ====>  the program printf : 4294967281
 
-----------------%%----------------------
-
+--------------void pointers----%p----------------------
+* void pointers : are like geniric pointers
+* void pointers : are not associated with a data type
+ void *p;    sizeof(p)  = 8;  %zu
+ int *p2 ;   sizeof(p2) = 8; %zu
 
 ----------------------------------------
 You have to implement the following conversions:
