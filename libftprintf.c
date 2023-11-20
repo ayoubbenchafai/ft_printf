@@ -114,6 +114,8 @@ int check_conversions(const char *s, va_list ap)
     }
     else if(*s == '%')
         len += ft_putchar('%');
+    else
+        len += ft_putchar('%') + ft_putstr(s); 
     return (len);
 }
 
@@ -150,7 +152,7 @@ int main()
 {
     //int a = ft_printf("my age:%r");
     //int a = printf("\n len  = %u",-15);
-    int a = ft_printf("result : %x,%X,%s",255,255,NULL);
+    int a = ft_printf("result : %w");
     printf("\na = %d",a);
 
     return 0;
