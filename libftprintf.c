@@ -22,6 +22,21 @@ int ft_putstr(const char *s)
     return (i);
 }
 
+int 	ft_putnbr_unsigned(unsigned int n)
+{
+    int len;
+
+    len = 0;
+	if (n > 9)
+	{
+		len += ft_putnbr_unsigned(n / 10);
+		len += ft_putnbr_unsigned(n % 10);
+	}
+	else
+		len += ft_putchar(n + '0');
+    return (len);
+}
+
 int 	ft_putnbr(int n)
 {
     int len;
@@ -47,7 +62,7 @@ int 	ft_putnbr(int n)
     return (len);
 }
 
-int hex(int n, char c)
+int hex(unsigned int n, char c)
 {
     int len;
     char *str;
@@ -90,13 +105,12 @@ int check_conversions(const char *s, va_list ap)
     else if(*s == 'u')
     {
         unsigned int u = va_arg(ap, unsigned int);
-        len += ft_putnbr(u);
+        len += ft_putnbr_unsigned(u);
     }
     else if(*s == 'x' || *s == 'X')
     {
-        char c = *s;
-        int x = va_arg(ap , unsigned int);
-        len += hex(x,c);
+        unsigned int x = va_arg(ap , unsigned int);
+        len += hex(x, *s);
     }
     else if(*s == '%')
         len += ft_putchar('%');
@@ -114,7 +128,6 @@ int ft_printf(const char *s, ...)
     c = 0;
     i = 0;
     va_start(ap, s);
-
     while(s[i])
     {
         if(s[i] == '%')
@@ -137,7 +150,7 @@ int main()
 {
     //int a = ft_printf("my age:%r");
     //int a = printf("\n len  = %u",-15);
-    int a = ft_printf("result : %X",255);
+    int a = ft_printf("result : %x,%X,%s",255,255,NULL);
     printf("\na = %d",a);
 
     return 0;
