@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int ft_printf(const char *s, ...)
 {
@@ -24,3 +24,9 @@ int ft_printf(const char *s, ...)
     return (c);
 }
 
+
+// #include <libc.h>
+// int main()
+// {
+//     ft_printf("%d\n",231);
+// }
