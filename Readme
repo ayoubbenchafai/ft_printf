@@ -24,6 +24,7 @@ sizeof(NULL) ==>  8
 sizeof('\0') ==>  4
 sizeof(0) ==>  4
 
+
 ----------------------------------------
 You have to implement the following conversions:
 • %c Prints a single character. 
@@ -35,3 +36,11 @@ You have to implement the following conversions:
 • %x Prints a number in hexadecimal (base 16) lowercase format.
 • %X Prints a number in hexadecimal (base 16) uppercase format.
 • %% Prints a percent sign.
+
+
+----------------va_list ap----------
+ap pointe sur le premier argument int this case is (string s)
+va_list ap :ap pointeur vers la structure qui contient la liste d'arguments de la variable 
+    
+
+-------------------------------(-1)-------------------------------------

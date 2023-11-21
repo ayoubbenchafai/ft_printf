@@ -25,10 +25,15 @@ int check_conversions(const char *s, va_list ap)
         unsigned int u = va_arg(ap, unsigned int);
         len += ft_putnbr_unsigned(u);
     }
-    else if(*s == 'x' || *s == 'X')
+    else if(*s == 'x')
     {
         unsigned int x = va_arg(ap , unsigned int);
-        len += hex(x, *s);
+        len += hex(x, 'x');
+    }
+    else if(*s == 'X')
+    {
+        unsigned int X = va_arg(ap , unsigned int);
+        len += hex(X, 'X');
     }
     else if(*s == '%')
         len += ft_putchar('%');

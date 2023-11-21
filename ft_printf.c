@@ -9,6 +9,9 @@ int ft_printf(const char *s, ...)
     c = 0;
     i = 0;
     va_start(ap, s);
+
+    if (write(1, "", 0) == -1)
+        return -1;
     while(s[i])
     {
         if(s[i] == '%')
@@ -28,5 +31,7 @@ int ft_printf(const char *s, ...)
 // #include <libc.h>
 // int main()
 // {
-//     ft_printf("%d\n",231);
+//     printf("%u\n", -10);
+//     ft_printf("%u\n", -10);
+
 // }
