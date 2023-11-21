@@ -24,18 +24,33 @@ int ft_putstr(const char *s)
     return (i);
 }
 
+int nbr_digits(int n)
+{
+    int len = 0;
+    if(n == 0)
+        len += 1;
+    if (n < 0)
+        len += 1;
+    while(n != 0)
+    {
+        n /= 10;
+        len++;
+    }
+    return (len);
+}
+
 int 	ft_putnbr_unsigned(unsigned int n)
 {
     int len;
 
-    len = 0;
+    len = nbr_digits(n);
 	if (n > 9)
 	{
-		len += ft_putnbr_unsigned(n / 10);
-		len += ft_putnbr_unsigned(n % 10);
+		ft_putnbr_unsigned(n / 10);
+		ft_putnbr_unsigned(n % 10);
 	}
 	else
-		len += ft_putchar(n + '0');
+		ft_putchar(n + '0');
     return (len);
 }
 
@@ -44,23 +59,23 @@ int 	ft_putnbr(int n)
     int len;
 	int	min_value;
 
-    len = 0;
+    len = nbr_digits(n);
 	min_value = -2147483648 ;
 	if (n == min_value)
-		len += write(1, "-2147483648", 11);
+		 write(1, "-2147483648", 11);
 	else if (n < 0)
 	{
 		n *= (-1);
-		len += ft_putchar('-');
-		len += ft_putnbr(n);
+		 ft_putchar('-');
+		 ft_putnbr(n);
 	}
 	else if (n > 9)
 	{
-		len += ft_putnbr(n / 10);
-		len += ft_putnbr(n % 10);
+		 ft_putnbr(n / 10);
+		 ft_putnbr(n % 10);
 	}
 	else
-		len += ft_putchar(n + '0');
+		ft_putchar(n + '0');
     return (len);
 }
 
@@ -84,14 +99,12 @@ int hex(unsigned int n, char c)
     return (len);    
 }
 
-int hex_p(unsigned long p)
+int hex_p(unsigned long n)
 {
     int len;
     char *str;
-    size_t n;
 
     len  = 0;
-    n = (size_t)p;
     str = "0123456789abcdef";
     if(n >= 16)
     {
@@ -137,11 +150,11 @@ int check_conversions(const char *s, va_list ap)
         len += ft_putchar('%');
     else if(*s == 'p')
     {
-        unsigned long p = (unsigned long)va_arg(ap, void *);
+        unsigned long p =(unsigned long)va_arg(ap, void *);
         len += ft_putstr("0x") + hex_p(p);
     }    
     else
-        len += ft_putchar('%') + ft_putstr(s); 
+        len += ft_putstr(s); 
     return (len);
 }
 
@@ -165,7 +178,6 @@ int ft_printf(const char *s, ...)
             c += write(1,&s[i],1);
         i++;    
     }
-
     va_end(ap);
     return (c);
 }
@@ -178,11 +190,14 @@ int main()
     // int a = ft_printf("result : %w");
     // printf("\na = %d",a);
 
-    int num =42;
+    int num =255;
 
     int *ptr= &num;
 
-    printf("%p", NULL);
+    int a = ft_printf("diali :%d,%x\n",2525,123);
+        int b = ft_printf("diali :%d,%x\n",2525,123);
+
+    printf("\na = %d,\n,b = %d\n",a,b);
 
     return 0;
 }
