@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aben-cha <aben-cha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/21 21:30:19 by aben-cha          #+#    #+#             */
+/*   Updated: 2023/11/21 22:05:10 by aben-cha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "ft_printf.h"
 
 int ft_printf(const char *s, ...)
@@ -31,7 +44,15 @@ int ft_printf(const char *s, ...)
 // #include <libc.h>
 // int main()
 // {
-//     printf("%u\n", -10);
-//     ft_printf("%u\n", -10);
+//     // close(1);
+//     // int d = printf("%1023s", "g");
+//     // fprintf(stderr, "%d\n", d);
+//     // d = printf("io");
+//     // fprintf(stderr, "%d\n", d);
+//     // d = printf("%1022s", "g");
+//     // fprintf(stderr, "%d\n", d);
+//     // d = printf("%1021s", "g");
+//     // fprintf(stderr, "%d\n", d);
+//     ft_printf("");
 
 // }

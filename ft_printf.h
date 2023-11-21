@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aben-cha <aben-cha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/21 21:29:38 by aben-cha          #+#    #+#             */
+/*   Updated: 2023/11/21 21:29:39 by aben-cha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #ifndef FT_PRINTF_H
 #define FT_PRINTF_H
 
 #include <unistd.h>
-#include <stdlib.h>
 #include <stdarg.h>
 
 int     ft_printf(const char *s, ...);
