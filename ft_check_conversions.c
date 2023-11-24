@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_conversions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-cha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aben-cha <aben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:50:21 by aben-cha          #+#    #+#             */
-/*   Updated: 2023/11/22 21:55:43 by aben-cha         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:50:36 by aben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	ft_check_conversions(const char *s, va_list ap)
 	else if (*s == 'p')
 		len += ft_putstr("0x") + ft_hex_p(va_arg(ap, unsigned long));
 	else
-		len += ft_putstr(s);
+		len += ft_putchar(*s);
 	return (len);
 }

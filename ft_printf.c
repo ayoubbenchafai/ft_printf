@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aben-cha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aben-cha <aben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:03:29 by aben-cha          #+#    #+#             */
-/*   Updated: 2023/11/22 22:07:22 by aben-cha         ###   ########.fr       */
+/*   Updated: 2023/11/24 21:23:19 by aben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,24 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
+            if(s[i + 1] == '\0')
+                break;
 			c += ft_check_conversions(&s[i + 1], ap);
 			i++;
 		}
 		else
-			c += write(1, &s[i], 1);
+			c += write(1, s+ i, 1);
 		i++;
 	}
 	va_end(ap);
 	return (c);
+}
+
+
+#include <stdio.h>
+int main()
+{
+    //close(1);
+    // int d =  printf("%1025s","ayoub");
+    ft_printf("%");
 }
