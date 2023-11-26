@@ -6,7 +6,7 @@
 /*   By: aben-cha <aben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:03:29 by aben-cha          #+#    #+#             */
-/*   Updated: 2023/11/24 21:23:19 by aben-cha         ###   ########.fr       */
+/*   Updated: 2023/11/26 13:24:10 by aben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,17 @@ int	ft_printf(const char *s, ...)
 		return (-1);
 	while (s[i])
 	{
-		if (s[i] == '%')
+		if (s[i] == '%' && s[i + 1])
 		{
-            if(s[i + 1] == '\0')
-                break;
 			c += ft_check_conversions(&s[i + 1], ap);
 			i++;
 		}
+		else if (s[i] == '%')
+			break ;
 		else
-			c += write(1, s+ i, 1);
+			c += write(1, &s[i], 1);
 		i++;
 	}
 	va_end(ap);
 	return (c);
-}
-
-
-#include <stdio.h>
-int main()
-{
-    //close(1);
-    // int d =  printf("%1025s","ayoub");
-    ft_printf("%");
 }
