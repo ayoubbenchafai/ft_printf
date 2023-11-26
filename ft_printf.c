@@ -6,7 +6,7 @@
 /*   By: aben-cha <aben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:03:29 by aben-cha          #+#    #+#             */
-/*   Updated: 2023/11/26 13:24:10 by aben-cha         ###   ########.fr       */
+/*   Updated: 2023/11/26 15:14:15 by aben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	ft_printf(const char *s, ...)
 		return (-1);
 	while (s[i])
 	{
-		if (s[i] == '%' && s[i + 1])
+		if (s[i] == '%')
 		{
+			if (s[i + 1] == '\0')
+				break ;
 			c += ft_check_conversions(&s[i + 1], ap);
 			i++;
 		}
-		else if (s[i] == '%')
-			break ;
 		else
 			c += write(1, &s[i], 1);
 		i++;

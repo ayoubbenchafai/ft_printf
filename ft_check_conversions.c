@@ -6,7 +6,7 @@
 /*   By: aben-cha <aben-cha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:50:21 by aben-cha          #+#    #+#             */
-/*   Updated: 2023/11/26 13:08:57 by aben-cha         ###   ########.fr       */
+/*   Updated: 2023/11/26 15:15:28 by aben-cha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int	ft_check_conversions(const char *s, va_list ap)
 		len += ft_putchar('%');
 	else if (*s == 'p')
 		len += ft_putstr("0x") + ft_hex_p(va_arg(ap, unsigned long));
+	else
+		len += ft_putchar(*s);
 	return (len);
 }
